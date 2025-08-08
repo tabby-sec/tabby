@@ -531,5 +531,9 @@
   
   {"name": "com.jcraft.jsch.ChannelExec","rules": [
     {"function": "setCommand","type": "sink","vul": "EXEC","actions": {},"polluted": [[0]],"max": 0}
+  ]},
+
+  {"name": "com.sast.astbenchmark.common.utils.SinkUtil", "rules": [
+    {"function": "sink", "type": "sink", "vul": "Benchmark", "actions": {}, "polluted": [[0]], "max": -2}
   ]}
 ]

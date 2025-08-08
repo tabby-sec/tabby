@@ -255,7 +255,8 @@ public class SimpleTypeAnalysis extends ForwardFlowAnalysis<Unit, ValueContainer
             Body body = SemanticUtils.retrieveBody(method, signature, true);
 
             if (body != null
-                    && body.getUnits().getModificationCount() >= GlobalConfiguration.METHOD_MAX_BODY_COUNT) {
+                    && (body.getUnits().size() >= GlobalConfiguration.METHOD_MAX_BODY_COUNT
+                    || body.getLocalCount() >= GlobalConfiguration.METHOD_MAX_LOCAL_COUNT)) {
                 // 超级长的函数 不分析，可能会发生内存泄露的问题
                 log.debug("Method {} body is too big, ignore", signature);
                 methodReference.setInitialed(true);

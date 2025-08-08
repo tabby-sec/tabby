@@ -57,6 +57,7 @@ public class GlobalConfiguration {
     public static int ARRAY_MAX_LENGTH = 25;
     public static int METHOD_MAX_DEPTH = 300;
     public static int METHOD_MAX_BODY_COUNT = 5000;
+    public static int METHOD_MAX_LOCAL_COUNT = 2000;
     public static int OBJECT_MAX_TRIGGER_TIMES = 500;
     public static int OBJECT_FIELD_K_LIMIT = 10;
     public static String THREAD_POOL_SIZE = "max";
@@ -230,6 +231,11 @@ public class GlobalConfiguration {
 
         try {
             METHOD_MAX_BODY_COUNT = getIntProperty("tabby.build.method.maxBodyCount", "5000", props);
+        } catch (Exception ignore) {
+        }
+
+        try {
+            METHOD_MAX_LOCAL_COUNT = getIntProperty("tabby.build.method.maxLocalCount", "2000", props);
         } catch (Exception ignore) {
         }
 
